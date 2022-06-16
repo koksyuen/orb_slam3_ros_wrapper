@@ -3,7 +3,7 @@ project(orb_slam3_ros_wrapper)
 
 # Change this to your installation of ORB-SLAM3. Default is ~/
 set(ORB_SLAM3_DIR
-   $ENV{HOME}/orbslam_ws/src/ORB_SLAM3
+   $ENV{HOME}/ORB_SLAM3
 )
 
 set(CMAKE_BUILD_TYPE "Release")
@@ -40,6 +40,7 @@ include_directories(
    ${ORB_SLAM3_DIR}
    ${ORB_SLAM3_DIR}/include
    ${ORB_SLAM3_DIR}/include/CameraModels
+   ${ORB_SLAM3_DIR}//Thirdparty/Sophus
    ${PROJECT_SOURCE_DIR}/include
    ${EIGEN3_INCLUDE_DIR}
    ${catkin_INCLUDE_DIRS}
