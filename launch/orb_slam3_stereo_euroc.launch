@@ -8,12 +8,12 @@
         <param name="voc_file"      type="string"   value="$(find orb_slam3_ros_wrapper)/config/ORBvoc.txt" />
         <param name="settings_file" type="string"   value="$(find orb_slam3_ros_wrapper)/config/EuRoC_stereo_inertial_non_rectified.yaml" />
         <param name="do_rectify"    type="bool"     value="true" />
-    
+
         <!-- Parameters for ROS -->
         <param name="map_frame_id"  type="string"   value="world" />
         <param name="pose_frame_id" type="string"   value="camera" />
     </node>
-    
+
     <!-- Visualization - RViz-->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find orb_slam3_ros_wrapper)/config/orb_slam3.rviz" output="screen" />
 
