@@ -1,5 +1,5 @@
 /**
-* 
+*
 * Adapted from ORB-SLAM3: Examples/ROS/src/ros_stereo_inertial.cc
 *
 */
@@ -30,7 +30,7 @@ public:
 
     queue<sensor_msgs::ImageConstPtr> imgLeftBuf, imgRightBuf;
     std::mutex mBufMutexLeft,mBufMutexRight;
-   
+
     ORB_SLAM3::System* mpSLAM;
     ImuGrabber *mpImuGb;
 
@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 
     if (voc_file == "file_not_set" || settings_file == "file_not_set")
     {
-        ROS_ERROR("Please provide voc_file and settings_file in the launch file");       
+        ROS_ERROR("Please provide voc_file and settings_file in the launch file");
         ros::shutdown();
         return 1;
     }
@@ -76,9 +76,9 @@ int main(int argc, char **argv)
 
     ImuGrabber imugb;
     ImageGrabber igb(&SLAM, &imugb, do_rectify, bEqual);
-    
+
     if(igb.do_rectify)
-    {      
+    {
         // Load settings related to stereo calibration
         cv::FileStorage fsSettings(settings_file, cv::FileStorage::READ);
         if(!fsSettings.isOpened())
@@ -117,7 +117,7 @@ int main(int argc, char **argv)
     }
 
     // Maximum delay, 5 seconds * 200Hz = 1000 samples
-    ros::Subscriber sub_imu = node_handler.subscribe("/imu", 1000, &ImuGrabber::GrabImu, &imugb); 
+    ros::Subscriber sub_imu = node_handler.subscribe("/imu", 1000, &ImuGrabber::GrabImu, &imugb);
     ros::Subscriber sub_img_left = node_handler.subscribe("/camera/left/image_raw", 100, &ImageGrabber::GrabImageLeft, &igb);
     ros::Subscriber sub_img_right = node_handler.subscribe("/camera/right/image_raw", 100, &ImageGrabber::GrabImageRight, &igb);
 
@@ -129,6 +129,9 @@ int main(int argc, char **argv)
     std::thread sync_thread(&ImageGrabber::SyncWithImu, &igb);
 
     ros::spin();
+
+    // Stop all threads
+    SLAM.Shutdown();
 
     return 0;
 }
@@ -163,7 +166,7 @@ cv::Mat ImageGrabber::GetImage(const sensor_msgs::ImageConstPtr &img_msg)
     {
         ROS_ERROR("cv_bridge exception: %s", e.what());
     }
-    
+
     if(cv_ptr->image.type()==0)
     {
         return cv_ptr->image.clone();
@@ -249,7 +252,7 @@ void ImageGrabber::SyncWithImu()
             cv::remap(imLeft,imLeft,M1l,M2l,cv::INTER_LINEAR);
             cv::remap(imRight,imRight,M1r,M2r,cv::INTER_LINEAR);
         }
-        
+
         // Main algorithm runs here
         cv::Mat Tcw = ORB_SLAM3::Converter::toCvMat(mpSLAM->TrackStereo(imLeft,imRight,tImLeft,vImuMeas).matrix());
 

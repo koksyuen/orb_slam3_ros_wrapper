@@ -2,13 +2,13 @@
     <!-- ORB-SLAM3 -->
     <node name="orb_slam3_stereo_inertial" pkg="orb_slam3_ros_wrapper" type="orb_slam3_ros_wrapper_stereo_inertial" output="screen">
         <!-- for EuRoC dataset -->
-        <remap from="/camera/left/image_raw"    to="/cam0/image_raw"/>
-        <remap from="/camera/right/image_raw"   to="/cam1/image_raw"/>
-        <remap from="/imu"                      to="/imu0"/>
+        <remap from="/camera/left/image_raw"    to="/d435/infra1/image_rect_raw"/>
+        <remap from="/camera/right/image_raw"   to="/d435/infra2/image_rect_raw"/>
+        <remap from="/imu"                      to="/t265/imu"/>
 
         <!-- Parameters for original ORB-SLAM3 -->
         <param name="voc_file"      type="string"   value="/home/koksyuen/ORB_SLAM3/Vocabulary/ORBvoc.txt" />
-        <param name="settings_file" type="string"   value="/home/koksyuen/ORB_SLAM3/Examples/Stereo-Inertial/EuRoC.yaml" />
+        <param name="settings_file" type="string"   value="/home/koksyuen/ORB_SLAM3/Examples_old/Stereo-Inertial/RealSense_D435i.yaml" />
         <param name="do_rectify"    type="bool"     value="false" />
         <param name="do_equalize"   type="bool"     value="true" />
 

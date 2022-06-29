@@ -8,8 +8,8 @@
 
         <!-- Parameters for original ORB-SLAM3 -->
         <param name="voc_file"      type="string"   value="/home/koksyuen/ORB_SLAM3/Vocabulary/ORBvoc.txt" />
-        <param name="settings_file" type="string"   value="/home/koksyuen/fyp_ws/src/orb_slam3_ros_wrapper/config/EuRoC_stereo_inertial_non_rectified.yaml" />
-        <param name="do_rectify"    type="bool"     value="true" />
+        <param name="settings_file" type="string"   value="/home/koksyuen/ORB_SLAM3/Examples/Stereo-Inertial/EuRoC.yaml" />
+        <param name="do_rectify"    type="bool"     value="false" />
         <param name="do_equalize"   type="bool"     value="true" />
 
         <!-- Parameters for ROS -->
