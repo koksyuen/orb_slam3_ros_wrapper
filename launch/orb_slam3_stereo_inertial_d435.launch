@@ -8,7 +8,7 @@
 
         <!-- Parameters for original ORB-SLAM3 -->
         <param name="voc_file"      type="string"   value="/home/koksyuen/ORB_SLAM3/Vocabulary/ORBvoc.txt" />
-        <param name="settings_file" type="string"   value="/home/koksyuen/ORB_SLAM3/Examples_old/Stereo-Inertial/RealSense_D435i.yaml" />
+        <param name="settings_file" type="string"   value="/home/koksyuen/fyp_ws/src/orb_slam3_ros_wrapper/config/RealSense_D435i.yaml" />
         <param name="do_rectify"    type="bool"     value="false" />
         <param name="do_equalize"   type="bool"     value="true" />
 

@@ -110,3 +110,5 @@ Viewer.ViewpointY: -0.7
 Viewer.ViewpointZ: -3.5
 Viewer.ViewpointF: 500
 Viewer.imageViewScale: 0.5
+
+System.SaveAtlasToFile: "fyp"
