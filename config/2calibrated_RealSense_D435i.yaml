@@ -59,15 +59,15 @@ ThDepth: 40.0
 # stereo baseline times fx
 Camera.bf: 19.114771561
 
-#from: /home/koksyuen/Documents/fyp2/fyp_result/calibration/result/infra_imu/left_infra_image_imu-camchain-imucam.yaml
+#from: /home/koksyuen/Documents/fyp2/fyp_result/calibration/result/latest_imu_test2/imu_test2-camchain-imucam.yaml
 # Transformation from body-frame (imu) to left camera
 Tbc: !!opencv-matrix
    rows: 4
    cols: 4
    dt: f
-   data: [-0.9998999892565146, 0.004922902388748979, 0.013258073649399897, -0.011815554666344352,
-          -0.004016860565251834, -0.9977099136583705, 0.06751883455011752, 0.08955657137944775,
-          0.01356010014791141, 0.0674588261080614, 0.9976299065605947, -0.008781135151420955,
+   data: [-0.9999730827903597, 0.005987248825538995, -0.004241054850661898, 0.0014106550315497609,
+          -0.006224216053466961, -0.9982820147699745, 0.05826043358335956, 0.05686916539832167,
+          -0.003884949068521369, 0.05828526261674017, 0.9982924097339584, 0.020404690108348614,
           0.0, 0.0, 0.0, 1.0]
 
 # Do not insert KFs when recently lost
