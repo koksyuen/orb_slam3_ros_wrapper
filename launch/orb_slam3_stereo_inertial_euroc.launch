@@ -8,8 +8,8 @@
 
         <!-- Parameters for original ORB-SLAM3 -->
         <param name="voc_file"      type="string"   value="/home/koksyuen/ORB_SLAM3/Vocabulary/ORBvoc.txt" />
-        <param name="settings_file" type="string"   value="/home/koksyuen/fyp_ws/src/orb_slam3_ros_wrapper/config/EuRoC_stereo_inertial_non_rectified.yaml" />
-        <param name="do_rectify"    type="bool"     value="true" />
+        <param name="settings_file" type="string"   value="/home/koksyuen/ORB_SLAM3/Examples/Stereo-Inertial/EuRoC.yaml" />
+        <param name="do_rectify"    type="bool"     value="false" />
         <param name="do_equalize"   type="bool"     value="true" />
 
         <!-- Parameters for ROS -->
@@ -20,10 +20,10 @@
     <!-- Visualization - RViz-->
     <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find orb_slam3_ros_wrapper)/config/orb_slam3.rviz" output="screen" /> -->
 
-    <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server_orb_slam3" output="screen" ns="orb_slam3_ros" >
+    <!-- <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server_orb_slam3" output="screen" ns="orb_slam3_ros" >
         <param name="/target_frame_name" value="/world" />
         <param name="/source_frame_name" value="/camera" />
         <param name="/trajectory_update_rate" value="20.0" />
         <param name="/trajectory_publish_rate" value="20.0" />
-    </node>
+    </node> -->
 </launch>

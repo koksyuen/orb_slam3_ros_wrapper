@@ -132,7 +132,7 @@ int main(int argc, char **argv)
 
     // Stop all threads
     SLAM.Shutdown();
-    SLAM.SaveTrajectoryTUM("/home/koksyuen/Documents/fyp_result/result/orb_euroc/orb.txt");
+    SLAM.SaveTrajectoryTUM("/home/koksyuen/Documents/fyp_result/result/orb_euroc/orb_old.txt");
 
     return 0;
 }
