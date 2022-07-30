@@ -71,8 +71,13 @@ int main(int argc, char **argv)
     node_handler.param<bool>(node_name + "/do_equalize", bEqual, false);
     node_handler.param<bool>(node_name + "/do_rectify", do_rectify, false);
 
+    bool localization_mode = false;
+    node_handler.param<bool>(node_name + "/localization_mode", localization_mode, false);
+
     // Create SLAM system. It initializes all system threads and gets ready to process frames.
     ORB_SLAM3::System SLAM(voc_file, settings_file, ORB_SLAM3::System::IMU_STEREO, true);
+    
+    if (localization_mode) SLAM.ActivateLocalizationMode();
 
     ImuGrabber imugb;
     ImageGrabber igb(&SLAM, &imugb, do_rectify, bEqual);
