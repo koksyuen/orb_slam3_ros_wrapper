@@ -56,47 +56,11 @@ set(LIBS
    ${OpenCV_LIBS}
 )
 
-# mono node
-add_executable (${PROJECT_NAME}_mono
-   src/mono_node.cc
-   src/common.cc
-)
-target_link_libraries(${PROJECT_NAME}_mono
-   ${LIBS}
-)
-
-# mono-inertial node
-add_executable (${PROJECT_NAME}_mono_inertial
-   src/mono_inertial_node.cc
-   src/common.cc
-)
-target_link_libraries(${PROJECT_NAME}_mono_inertial
-   ${LIBS}
-)
-
-# stereo node
-add_executable (${PROJECT_NAME}_stereo
-   src/stereo_node.cc
-   src/common.cc
-)
-target_link_libraries(${PROJECT_NAME}_stereo
-   ${LIBS}
-)
-
 # stereo-inertial node
 add_executable (${PROJECT_NAME}_stereo_inertial
    src/stereo_inertial_node.cc
    src/common.cc
 )
 target_link_libraries(${PROJECT_NAME}_stereo_inertial
-   ${LIBS}
-)
-
-# RGB-D node
-add_executable (${PROJECT_NAME}_rgbd
-   src/rgbd_node.cc
-   src/common.cc
-)
-target_link_libraries(${PROJECT_NAME}_rgbd
    ${LIBS}
 )
