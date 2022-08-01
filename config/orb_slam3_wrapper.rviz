@@ -5,7 +5,9 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /Path1
         - /TF1
+        - /TF1/Status1
         - /TF1/Frames1
       Splitter Ratio: 0.5584045648574829
     Tree Height: 865
@@ -53,7 +55,7 @@ Visualization Manager:
       Plane Cell Count: 100
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
+    - Alpha: 0.8500000238418579
       Buffer Length: 1
       Class: rviz/Path
       Color: 25; 255; 0
@@ -82,10 +84,14 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        base_link:
+          Value: true
+        camera:
+          Value: false
         odom:
-          Value: true
+          Value: false
         orb_odom:
-          Value: true
+          Value: false
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -135,7 +141,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 5.2918219566345215
+      Distance: 6.12025785446167
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -151,9 +157,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.909796953201294
+      Pitch: 0.8847969770431519
       Target Frame: <Fixed Frame>
-      Yaw: 3.1950016021728516
+      Yaw: 3.1850013732910156
     Saved: ~
 Window Geometry:
   Displays:
