@@ -19,6 +19,7 @@ find_package (catkin REQUIRED COMPONENTS
    tf
    sensor_msgs
    message_generation
+   geometry_msgs
 )
 
 find_package(OpenCV 4.2 REQUIRED)
@@ -32,7 +33,7 @@ MESSAGE(${Eigen3_VERSION})
 find_package(Pangolin REQUIRED)
 
 catkin_package (
-   CATKIN_DEPENDS roscpp rospy std_msgs cv_bridge image_transport tf sensor_msgs message_runtime
+   CATKIN_DEPENDS roscpp rospy std_msgs cv_bridge image_transport tf sensor_msgs geometry_msgs message_runtime
    LIBRARIES {PROJECT_NAME}
 )
 
@@ -64,3 +65,11 @@ add_executable (${PROJECT_NAME}_stereo_inertial
 target_link_libraries(${PROJECT_NAME}_stereo_inertial
    ${LIBS}
 )
+
+add_executable(pose_publisher
+  src/pose_publisher.cpp
+  )
+
+target_link_libraries(pose_publisher
+  ${LIBS}
+  )
