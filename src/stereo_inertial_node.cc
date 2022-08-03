@@ -182,6 +182,7 @@ cv::Mat ImageGrabber::GetImage(const sensor_msgs::ImageConstPtr &img_msg)
 void ImageGrabber::SyncWithImu()
 {
     const double maxTimeDiff = 0.01;
+    bool IMUInitialised = false;
     while(1)
     {
         cv::Mat imLeft, imRight;
@@ -257,7 +258,13 @@ void ImageGrabber::SyncWithImu()
         // Main algorithm runs here
         cv::Mat Tcw = ORB_SLAM3::Converter::toCvMat(mpSLAM->TrackStereo(imLeft,imRight,tImLeft,vImuMeas).matrix());
 
-        publish_ros_tf(Tcw, current_frame_time);
+        if (!IMUInitialised)
+            IMUInitialised = mpSLAM->isIMUInitialised();      
+
+        if (IMUInitialised){
+            // cout << "IMU completed initialisation" << endl;
+            publish_ros_tf(Tcw, current_frame_time);
+        }
 
         std::chrono::milliseconds tSleep(1);
         std::this_thread::sleep_for(tSleep);
