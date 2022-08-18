@@ -54,6 +54,7 @@ int main(int argc, char **argv)
     std::string node_name = ros::this_node::getName();
 
     std::string voc_file, settings_file;
+    std::string save_trajectory_file;
     node_handler.param<std::string>(node_name + "/voc_file", voc_file, "file_not_set");
     node_handler.param<std::string>(node_name + "/settings_file", settings_file, "file_not_set");
 
@@ -73,6 +74,7 @@ int main(int argc, char **argv)
 
     bool localization_mode = false;
     node_handler.param<bool>(node_name + "/localization_mode", localization_mode, false);
+    node_handler.param<std::string>(node_name + "/save_trajectory_file", save_trajectory_file, "/home/koksyuen/Documents/orb_old.txt");
 
     // Create SLAM system. It initializes all system threads and gets ready to process frames.
     ORB_SLAM3::System SLAM(voc_file, settings_file, ORB_SLAM3::System::IMU_STEREO, true);
@@ -132,7 +134,7 @@ int main(int argc, char **argv)
 
     // Stop all threads
     SLAM.Shutdown();
-    SLAM.SaveTrajectoryTUM("/home/koksyuen/Documents/fyp_result/result/orb_euroc/orb_old.txt");
+    SLAM.SaveTrajectoryTUM(save_trajectory_file);
 
     return 0;
 }
