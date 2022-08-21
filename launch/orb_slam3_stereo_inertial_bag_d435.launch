@@ -1,5 +1,6 @@
 <launch>
     <param name ="/use_sim_time" value="true"/>
+    <!-- <node name="static_orb_nav_tf" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 sick/map orb/odom 100" /> -->
 
     <node name="orb_static_tf" pkg="tf" type="static_transform_publisher" args="0.15945 0 0 -1.5707963 0 0 orb/odom orb/orb_odom 100" />
     <node name="robot_static_tf" pkg="tf" type="static_transform_publisher" args="0 0 -0.15945 0.5 -0.5 0.5 0.5 orb/camera orb/base_link 100" />
@@ -17,7 +18,7 @@
         <param name="do_rectify"    type="bool"     value="false" />
         <param name="do_equalize"   type="bool"     value="true" />
         <param name="localization_mode"   type="bool"     value="false" />
-        <param name="save_trajectory_file" type="string"   value="/home/koksyuen/Documents/fyp_result/result/realsense_nav350_20221012/test5/orbslam3.txt" />
+        <param name="save_trajectory_file" type="string"   value="/home/koksyuen/Documents/fyp_result/result/realsense_nav350_20220821/test2/orbslam3.txt" />
 
 
         <!-- Parameters for ROS -->
@@ -34,7 +35,7 @@
     </node>
 
     <!-- Visualization - RViz-->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find orb_slam3_ros_wrapper)/config/orb_slam3_wrapper.rviz" output="screen" />
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find orb_slam3_ros_wrapper)/config/orb_slam3_wrapper.rviz" output="screen" />
 
     <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server_orb_slam3" output="screen" ns="orb_slam3_ros" >
         <param name="/target_frame_name" value="orb/odom" />
@@ -42,5 +43,12 @@
         <param name="/trajectory_update_rate" value="20.0" />
         <param name="/trajectory_publish_rate" value="20.0" />
     </node>
+
+        <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server_nav360" output="screen" ns="nav360_ros" >
+        <param name="/target_frame_name" value="sick/odom" />
+        <param name="/source_frame_name" value="sick/base_link" />
+        <param name="/trajectory_update_rate" value="20.0" />
+        <param name="/trajectory_publish_rate" value="20.0" />
+    </node> -->
 
 </launch>
