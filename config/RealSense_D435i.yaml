@@ -1,5 +1,8 @@
 %YAML:1.0
 
+# System.SaveAtlasToFile: "/home/koksyuen/Documents/fyp_result/atlas/realsense_nav350_20220812/test1"
+# System.LoadAtlasFromFile: "/home/koksyuen/Documents/fyp_result/atlas/realsense_nav350_20220812/test1"
+
 #--------------------------------------------------------------------------------------------
 # Camera Parameters. Adjust them!
 #--------------------------------------------------------------------------------------------

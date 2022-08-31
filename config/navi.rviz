@@ -3,10 +3,7 @@ Panels:
     Help Height: 0
     Name: Displays
     Property Tree Widget:
-      Expanded:
-        - /TF1/Frames1
-        - /global_map1
-        - /local_map1
+      Expanded: ~
       Splitter Ratio: 0.4664722979068756
     Tree Height: 656
   - Class: rviz/Selection
@@ -53,30 +50,6 @@ Visualization Manager:
       Plane Cell Count: 100
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 0.8500000238418579
-      Buffer Length: 1
-      Class: rviz/Path
-      Color: 25; 255; 0
-      Enabled: true
-      Head Diameter: 0.30000001192092896
-      Head Length: 0.20000000298023224
-      Length: 0.30000001192092896
-      Line Style: Billboards
-      Line Width: 0.019999999552965164
-      Name: Path
-      Offset:
-        X: 0
-        Y: 0
-        Z: 0
-      Pose Color: 255; 85; 255
-      Pose Style: None
-      Queue Size: 10
-      Radius: 0.029999999329447746
-      Shaft Diameter: 0.10000000149011612
-      Shaft Length: 0.10000000149011612
-      Topic: /orb_slam3_ros/trajectory
-      Unreliable: false
-      Value: true
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
@@ -107,12 +80,14 @@ Visualization Manager:
         d435_infra2_optical_frame:
           Value: false
         d435_link:
-          Value: true
+          Value: false
         odom:
           Value: false
         orb/base_link:
           Value: true
         orb/camera:
+          Value: false
+        orb/map:
           Value: false
         orb/odom:
           Value: true
@@ -167,47 +142,49 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        sick/world:
-          sick/map:
-            orb/odom:
-              orb/orb_odom:
-                orb/camera:
-                  orb/base_link:
-                    d435_link:
-                      d435_color_frame:
-                        d435_color_optical_frame:
-                          {}
-                      d435_depth_frame:
-                        d435_depth_optical_frame:
-                          {}
-                      d435_infra1_frame:
-                        d435_infra1_optical_frame:
-                          {}
-                      d435_infra2_frame:
-                        d435_infra2_optical_frame:
-                          {}
-            sick/odom:
-              sick/base_link:
-                sick/nav350:
-                  sick/reflector0:
-                    {}
-                  sick/reflector1:
-                    {}
-                  sick/reflector2:
-                    {}
-                  sick/reflector3:
-                    {}
-                  sick/reflector4:
-                    {}
-                  sick/reflector5:
-                    {}
-                  sick/reflector6:
-                    {}
-                  sick/reflector7:
-                    {}
-                  sick/reflector8:
-                    {}
+        orb/map:
+          orb/odom:
+            orb/orb_odom:
+              orb/camera:
+                orb/base_link:
+                  d435_link:
+                    d435_color_frame:
+                      d435_color_optical_frame:
+                        {}
+                    d435_depth_frame:
+                      d435_depth_optical_frame:
+                        {}
+                    d435_infra1_frame:
+                      d435_infra1_optical_frame:
+                        {}
+                    d435_infra2_frame:
+                      d435_infra2_optical_frame:
+                        {}
       Update Interval: 0
+      Value: true
+    - Alpha: 0.8500000238418579
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Billboards
+      Line Width: 0.019999999552965164
+      Name: ORB_Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Queue Size: 10
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /orb_slam3_ros/trajectory
+      Unreliable: false
       Value: true
     - Alpha: 0.25
       Class: rviz/Axes
@@ -360,13 +337,13 @@ Visualization Manager:
       Buffer Length: 1
       Class: rviz/Path
       Color: 32; 74; 135
-      Enabled: false
+      Enabled: true
       Head Diameter: 0.30000001192092896
       Head Length: 0.20000000298023224
       Length: 0.30000001192092896
-      Line Style: Lines
+      Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Path
+      Name: Global_Path
       Offset:
         X: 0
         Y: 0
@@ -379,18 +356,18 @@ Visualization Manager:
       Shaft Length: 0.10000000149011612
       Topic: /move_base/TrajectoryPlannerROS/global_plan
       Unreliable: false
-      Value: false
+      Value: true
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
       Color: 252; 233; 79
-      Enabled: false
+      Enabled: true
       Head Diameter: 0.30000001192092896
       Head Length: 0.20000000298023224
       Length: 0.30000001192092896
-      Line Style: Lines
+      Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Path
+      Name: Local_Path
       Offset:
         X: 0
         Y: 0
@@ -403,12 +380,12 @@ Visualization Manager:
       Shaft Length: 0.10000000149011612
       Topic: /move_base/TrajectoryPlannerROS/local_plan
       Unreliable: false
-      Value: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 46; 52; 54
     Default Light: true
-    Fixed Frame: sick/world
+    Fixed Frame: orb/map
     Frame Rate: 30
   Name: root
   Tools:
@@ -448,9 +425,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8697963356971741
+      Pitch: 0.6097965240478516
       Target Frame: <Fixed Frame>
-      Yaw: 3.915015935897827
+      Yaw: 3.8600149154663086
     Saved: ~
 Window Geometry:
   Displays:
