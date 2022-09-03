@@ -13,6 +13,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 #include <tf/transform_broadcaster.h>
+#include <tf/LinearMath/Quaternion.h>
 
 #include <std_msgs/Header.h>
 #include <sensor_msgs/Imu.h>
@@ -37,6 +38,7 @@ extern std::string map_frame_id, pose_frame_id;
 
 
 void publish_ros_tf(cv::Mat, ros::Time);
+void publish_zero_tf(ros::Time);
 void publish_tf_transform(tf::Transform, ros::Time);
 
 tf::Transform from_orb_to_ros_tf_transform(cv::Mat);

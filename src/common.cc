@@ -18,6 +18,15 @@ void publish_ros_tf(cv::Mat Tcw, ros::Time current_frame_time)
     }
 }
 
+void publish_zero_tf(ros::Time current_frame_time)
+{
+    tf::Quaternion zeroQuaternion(-0.707, 0, 0, 0.707);
+
+    tf::Transform tf_transform = tf::Transform(zeroQuaternion);
+
+    publish_tf_transform(tf_transform, current_frame_time);
+}
+
 void publish_tf_transform(tf::Transform tf_transform, ros::Time current_frame_time)
 {
     static tf::TransformBroadcaster tf_broadcaster;

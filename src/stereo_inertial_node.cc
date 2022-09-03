@@ -261,6 +261,7 @@ void ImageGrabber::SyncWithImu()
         cv::Mat Tcw = ORB_SLAM3::Converter::toCvMat(mpSLAM->TrackStereo(imLeft,imRight,tImLeft,vImuMeas).matrix());
 
         if (!IMUInitialised)
+            publish_zero_tf(current_frame_time);
             IMUInitialised = mpSLAM->isIMUInitialised();      
 
         if (IMUInitialised){
